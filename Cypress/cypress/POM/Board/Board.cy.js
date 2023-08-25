@@ -6,7 +6,5 @@ class BoardPage {
     }
 
   }
-
-
   
   module.exports = new BoardPage();

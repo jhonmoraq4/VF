@@ -1,26 +1,16 @@
 class WorkspacePage {
-  workSpaceComponent() {
-    
-    cy.findByRole('button', { id: 'create-new-workspace' }).as('WorkSpaceButton');
-    cy.findByPlaceholderText('e.g. Marketing strategies').as('NewWorkspaceName');
-    cy.findByRole('button', { name: 'Create workspace' }).as('CreateWorkSpaceButton');
-    cy.wait(2000); // Esperar 2 segundos
-    cy.findByRole('link', { name: 'Health' }).as('HealthCheckOption');
-    cy.findByText()
-    return cy.wrap(this);
-  }
+
 
   workSpaceCreation(workspaceName) {
-    cy.get('@WorkSpaceButton').click()
+    cy.get('button[aria-label="Find or create a workspace"]').click()
     cy.contains('button', 'New blank workspace').click()
-    cy.get('@NewWorkspace').click()
-    cy.get('@NewWorkspaceName').type(workspaceName)
-    cy.get('@CreateWorkSpaceButton').click()
+    cy.get('#vf-new-workspace-name-input').type(workspaceName)
+    cy.contains('button', 'Create workspace').click()
     cy.wait(2000) // Esperar 2 segundos
   }
 
   workSpaceOptions() {
-    cy.get('@HealthCheckOption').click()
+    
   }
 }
 
