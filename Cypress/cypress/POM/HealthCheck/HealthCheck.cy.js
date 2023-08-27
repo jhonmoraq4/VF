@@ -1,15 +1,15 @@
 class HealthCheckPage {
     ImprovementPlanComponent() {
-      cy.get('[dd-action-name="DD: Health instructions - Close"]').click();
+      cy.get('button[dd-action-name="DD: Health instructions - Close"]').click();
     }
   
     TakeYourFirstHealthCheck() {
       cy.get('#health-check-start-survey').click();
-      cy.wait(3000);
     }
   
     NextButtonClick() {
-      cy.get('button[role="button"][name="Next"]').click();
+      cy.get('button[vf-button][preset-next]').click();
+
     }
   
     BackButtonClick() {
@@ -108,10 +108,5 @@ class HealthCheckPage {
     }
   }
   
-  // Uso de la clase HealthCheckPage
-  const healthCheckPage = new HealthCheckPage();
-  
-  healthCheckPage.ImprovementPlanComponent();
-  healthCheckPage.TakeYourFirstHealthCheck();
-  // Continúa llamando a otros métodos según sea necesario
+  module.exports = new HealthCheckPage();
   

@@ -6,12 +6,14 @@ class WorkspacePage {
     cy.contains('button', 'New blank workspace').click()
     cy.get('#vf-new-workspace-name-input').type(workspaceName)
     cy.contains('button', 'Create workspace').click()
-    cy.wait(2000) // Esperar 2 segundos
+
   }
 
-  workSpaceOptions() {
-    
+  workSpaceHealthCheckSelection(){
+    cy.get('div[id="app-health"]').click()
   }
+
+
 }
 
 module.exports = new WorkspacePage();
