@@ -8,16 +8,13 @@ describe('POM implementation', () => {
     cy.visit('https://test414.staging.factor.work/login');
   });
 
-  it('User Log in', () => {
+  it('HealthCheck test', () => {
     LogginPage.loginInterface('diana.mitchell@client.bar', 'secret');
     BoardPage.WorkSpaceTitle().should('have.text', 'My workspaces');
     WorkspacePage.workSpaceCreation('Test100WorkSpace')
     WorkspacePage.workSpaceOptions();
   });
 
-  it('Go for workspace', () => {
-    
 
-  });
 
 });
