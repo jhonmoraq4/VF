@@ -15,7 +15,7 @@ describe('POM implementation', () => {
     cy.wait(2000);
     BoardPage.WorkSpaceTitle().should('have.text', 'My workspaces');
     cy.wait(2000);
-    WorkspacePage.workSpaceCreation('Test224WorkSpace');
+    WorkspacePage.workSpaceCreation('Test332WorkSpace');
     cy.wait(3000);
     WorkspacePage.workSpaceHealthCheckSelection();
     cy.wait(3000);
@@ -27,7 +27,9 @@ describe('POM implementation', () => {
     cy.wait(2000);
     HealthCheckPage.NextButtonClick();
     cy.wait(2000);
+    HealthCheckPage.movitesScreen()
+    cy.wait(2000);
   });
 
-  
+
 });

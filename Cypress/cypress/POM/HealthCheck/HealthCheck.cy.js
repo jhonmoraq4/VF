@@ -26,36 +26,46 @@ class HealthCheckPage {
   
     movitesScreen() {
       const sliderHandle = '.mdc-slider__thumb';
-      
+    
       for (let i = 0; i < 6; i++) {
         cy.get(sliderHandle)
           .eq(i)
           .then((slider) => {
+            // Habilitar pointer-events
+            cy.enablePointerEvents();
+            
+            // Obtener el bounding box
             const boundingBox = slider[0].getBoundingClientRect();
             const start_x = boundingBox.x;
             const start_y = boundingBox.y;
-  
-            cy.get(sliderHandle).eq(i).trigger('mousedown', { which: 1 });
-  
+    
+            cy.get(sliderHandle).eq(i).trigger('mousedown', { which: 1, force: true });
+            
             // Define how many pixels it will move
             const pixels_to_drag = Cypress._.random(60, 200);
-  
+    
             // Calculate the new X_position
             const end_x = start_x + pixels_to_drag;
-  
+    
             cy.get(sliderHandle)
               .eq(i)
               .trigger('mousemove', {
                 clientX: end_x,
                 clientY: start_y,
+                force: true, // Agrega force: true aquí también
               })
               .trigger('mouseup', { force: true });
-  
+            
+            // Deshabilitar pointer-events nuevamente
+            cy.get(slider).invoke('attr', 'class', 'mdc-slider__thumb enable-pointer-events');
+            
             if (i !== 0 && i % 2 === 0) {
-              cy.get(sliderHandle).eq(i).trigger('wheel', { deltaY: 200 });
+              cy.get(sliderHandle)
+                .eq(i)
+                .trigger('wheel', { deltaY: 200, force: true });
             }
           });
-  
+    
         cy.wait(1000);
       }
     }

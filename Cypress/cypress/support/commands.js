@@ -25,3 +25,11 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import '@cypress/xpath';
 import '@testing-library/cypress/add-commands'
+
+Cypress.Commands.add('enablePointerEvents', () => {
+    cy.document().then((doc) => {
+      const style = doc.createElement('style');
+      style.innerHTML = '.enable-pointer-events { pointer-events: auto !important; }';
+      doc.head.appendChild(style);
+    });
+  });
