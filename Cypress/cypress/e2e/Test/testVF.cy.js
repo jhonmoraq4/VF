@@ -15,19 +15,29 @@ describe('POM implementation', () => {
     cy.wait(2000);
     BoardPage.WorkSpaceTitle().should('have.text', 'My workspaces');
     cy.wait(2000);
-    WorkspacePage.workSpaceCreation('Test230WorkSpace');
+    WorkspacePage.workSpaceCreation('TestingWP30');
     cy.wait(3000);
     WorkspacePage.workSpaceHealthCheckSelection();
     cy.wait(3000);
     HealthCheckPage.ImprovementPlanComponent();
     cy.wait(3000);
     HealthCheckPage.TakeYourFirstHealthCheck();
-    cy.wait(5000);
+    cy.wait(20000);
     HealthCheckPage.NextButtonClick();
     cy.wait(2000);
     HealthCheckPage.NextButtonClick();
     cy.wait(2000);
     HealthCheckPage.movitesScreen();
+    cy.wait(2000);
+    HealthCheckPage.NextButtonThoughts();
+    cy.wait(2000);
+    HealthCheckPage.thoughtsScreen();
+    cy.wait(2000);
+    HealthCheckPage.habitsScreen();
+    cy.wait(2000);
+    
+
+
 
   });
 

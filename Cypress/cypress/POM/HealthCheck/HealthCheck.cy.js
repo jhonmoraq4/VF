@@ -5,11 +5,15 @@ class HealthCheckPage {
   
     TakeYourFirstHealthCheck() {
       cy.get('#health-check-start-survey').click();
+      cy.wait(3000)
     }
   
     NextButtonClick() {
       cy.get('button[vf-button][preset-next]').click();
+    }
 
+    NextButtonThoughts() {
+      cy.get('button[id="health-check-go-to-thoughts-step"]').click();
     }
   
     BackButtonClick() {
@@ -26,33 +30,23 @@ class HealthCheckPage {
   
     movitesScreen() {
       cy.get('input[type="range"]').each(($slider) => {
-        cy.wrap($slider).invoke('val', 17).trigger('input');
-      });
-      
+        const randomValue = Math.floor(Math.random() * 99) + 2; // Genera un valor aleatorio entre 2 y 100
+        cy.wrap($slider).invoke('val', randomValue).trigger('input');
+      })
+    }
 
+    thoughtsScreen() {
+      cy.get('div[role="textbox"]').type("Build a House")
+      cy.get('#health-check-go-to-habits-step').click()
     }
-  
+
     habitsScreen() {
-      const maintainAsIsElements = '.mat-radio-container';
-      const improveLaterElements = '.mat-radio-container';
-      const prioritizeElements = '.mat-radio-container';
-  
-      for (let i = 0; i < 10; i += 3) {
-        cy.get(maintainAsIsElements).eq(i).click();
-        cy.wait(1000);
+      for (let i = 2; i <= 10; i++) {
+        cy.get('.checkbox-item:nth-child(${i}) mat-radio-button').eq(1).click();
       }
-  
-      for (let i = 11; i < 20; i += 2) {
-        cy.get(improveLaterElements).eq(i).click();
-        cy.wait(1000);
-      }
-  
-      for (let i = 21; i < 30; i += 3) {
-        cy.get(prioritizeElements).eq(i).click();
-        cy.wait(1000);
-      }
+        cy.get('#health-check-go-to-ideas-step').click()
     }
-  
+    
     ideasScreen() {
       cy.get('textarea').each((textarea) => {
         cy.wrap(textarea).type('This is a test');
