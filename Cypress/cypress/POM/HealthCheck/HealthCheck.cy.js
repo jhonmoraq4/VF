@@ -41,10 +41,13 @@ class HealthCheckPage {
     }
 
     habitsScreen() {
-      for (let i = 2; i <= 10; i++) {
-        cy.get('.checkbox-item:nth-child(${i}) mat-radio-button').eq(1).click();
+      for (let i = 0; i < 10; i++) {
+        cy.get('.habit-item-wrapper').eq(i)  // Seleccionar la opción correspondiente
+          .find('.checkbox-item')             // Encontrar todos los elementos con la clase 'checkbox-item'
+          .eq(i === 0 ? 2 : 1)                // Seleccionar el tercer checkbox para la primera opción, y el segundo checkbox para las demás
+          .click();                           // Hacer clic en el checkbox correspondiente
       }
-        cy.get('#health-check-go-to-ideas-step').click()
+      cy.get('#health-check-go-to-ideas-step').click()
     }
     
     ideasScreen() {
@@ -52,6 +55,7 @@ class HealthCheckPage {
         cy.wrap(textarea).type('This is a test');
         cy.wait(1000);
       });
+      cy.get('#health-check-go-to-volunteers-step').click()
     }
   
     volunteersScreen() {
@@ -64,6 +68,16 @@ class HealthCheckPage {
   
     diagnosticSubmitted() {
       cy.get('button[mod*="accent"]').contains('Okay').click();
+    }
+
+    creatingReport() {
+      cy.get('#health-check-create-report').click();
+      cy.get('button[mat-flat-button][vfsteppernext][mod="accent"]').click();
+      cy.get('button[mat-flat-button][vfsteppernext][mod="accent"] span.mat-button-wrapper span:contains("That\'s correct")').click();
+      cy.get('#mat-checkbox-65').click();
+      cy.get('button[mat-flat-button][mod="accent"] span.mat-button-wrapper span:contains("Create report")').click();
+      cy.wait(2000)
+      cy.get('#health-check-creveal-step').click();
     }
   }
   
