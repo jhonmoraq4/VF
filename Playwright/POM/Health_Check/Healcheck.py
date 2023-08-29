@@ -1,6 +1,6 @@
 import time
-import random
 from playwright.sync_api import Playwright,sync_playwright, expect
+import random
 
 
 class HealthCheckPage:
@@ -30,45 +30,10 @@ class HealthCheckPage:
         copyLinkButton= self.page.locator("#health-check-copy-link").click()
     
     def movitesScreen(self):
-        # slider_elements = self.page.locator('.mdc-slider__input')
-        # for i in range(6):
-        #     current_slider = slider_elements.nth(i)
-        #     current_slider.click()
-        #     time.sleep(2)
-
-        slider_handle = self.page.locator("xpath=//mat-slider-visual-thumb[contains(@class,'mdc-slider__thumb')]")
- 
-        for i in range(6):
-
-            slider_handle_current = slider_handle.nth(i)
-
-            slider_handle_bounding_box = slider_handle_current.bounding_box()
-            
-            start_x = slider_handle_bounding_box['x']
-            start_y = slider_handle_bounding_box['y']
-
-            #Position the mouse on slider
-            self.page.mouse.move(start_x,start_y)
-
-            # Define how many pixels it will move 
-            pixels_to_drag = random.randint(60, 200)
-
-            # Calculate the new X_position
-            end_x = start_x + pixels_to_drag
-
-            #Drag the element               
-            self.page.mouse.down()
-
-            # Move the mouse to the new position
-            self.page.mouse.move(end_x,start_y)
-
-            # Drop the element
-            self.page.mouse.up()
-
-            if i != 0 and i % 2 == 0:
-                self.page.mouse.wheel(0, 200)
-    
-            time.sleep(1)
+        sliders = self.page.query_selector_all('input[type="range"]')
+        for slider in sliders:
+            random_value = str(random.randint(2, 100))
+            slider.fill(random_value)
 
 
     def thoughtsScreen(self):

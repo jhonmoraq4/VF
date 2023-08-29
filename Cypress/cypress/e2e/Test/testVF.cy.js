@@ -9,11 +9,11 @@ describe('POM implementation', () => {
   });
 
   it('HealthCheck test', () => {
-    LogginPage.loginInterface('queenie.quinn@client.bar', 'secret');
+    LogginPage.loginInterface('queenie.quinn@client.bar', 'secret'); 
     cy.wait(2000);
     BoardPage.WorkSpaceTitle().should('have.text', 'My workspaces');
     cy.wait(2000);
-    WorkspacePage.workSpaceCreation('TestWS8');
+    WorkspacePage.workSpaceCreation('TestWS9');
     cy.wait(3000);
     WorkspacePage.workSpaceHealthCheckSelection();
     cy.wait(3000);
