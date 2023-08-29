@@ -80,8 +80,6 @@ class HealthCheckPage {
      }
 
     creatingReportFacilitator(){
-      //cy.get('button[mat-flat-button][vfsteppernext][mod="accent"]').click();
-
       cy.get('button[mat-flat-button]').contains('Yes, that\'s me').click();
       //cy.get('button[mat-flat-button]').contains("No, that's not me").click();
     }
