@@ -36,7 +36,7 @@ class HealthCheckPage {
     }
 
     thoughtsScreen() {
-      cy.get('div[role="textbox"]').type("Build a House")
+      cy.get('div[role="textbox"]').type("I would like to know more about technology")
       cy.get('#health-check-go-to-habits-step').click()
     }
 
@@ -70,15 +70,42 @@ class HealthCheckPage {
       cy.get('button[mod*="accent"]').contains('Okay').click();
     }
 
-    creatingReport() {
+     creatingReportButton() {
       cy.get('#health-check-create-report').click();
-      cy.get('button[mat-flat-button][vfsteppernext][mod="accent"]').click();
-      cy.get('button[mat-flat-button][vfsteppernext][mod="accent"] span.mat-button-wrapper span:contains("That\'s correct")').click();
-      cy.get('#mat-checkbox-65').click();
-      cy.get('button[mat-flat-button][mod="accent"] span.mat-button-wrapper span:contains("Create report")').click();
-      cy.wait(2000)
-      cy.get('#health-check-creveal-step').click();
+    //   cy.get('button[mat-flat-button][vfsteppernext][mod="accent"] span.mat-button-wrapper span:contains("That\'s correct")').click();
+    //   cy.get('#mat-checkbox-65').click();
+    //   cy.get('button[mat-flat-button][mod="accent"] span.mat-button-wrapper span:contains("Create report")').click();
+    //   cy.wait(2000)
+    //   cy.get('#health-check-creveal-step').click();
+     }
+
+    creatingReportFacilitator(){
+      //cy.get('button[mat-flat-button][vfsteppernext][mod="accent"]').click();
+
+      cy.get('button[mat-flat-button]').contains('Yes, that\'s me').click();
+      //cy.get('button[mat-flat-button]').contains("No, that's not me").click();
     }
+
+    creatingReportInclusion(){
+      cy.get('button[mat-flat-button]').contains("That's correct").click();
+      //cy.contains('button[mat-flat-button]', 'Cancel').click();      
+    }
+    
+    creatingReportFinish(){
+      cy.get('.mat-checkbox-inner-container').click();
+      cy.wait(1)
+      //cy.get('button[mat-flat-button]').contains("Create report").click();
+      //cy.get('button[mat-flat-button]').contains('Create report').should('be.visible').click();
+    
+      //cy.contains('button[mat-flat-button]', 'Cancel').click();
+  
+    }
+
+    healthCheckReportFinishedTitle(){
+      return cy.get('h1.text-3xl[vftypography="headline-1"]').invoke('text')
+    }
+
+
   }
   
   module.exports = new HealthCheckPage();
