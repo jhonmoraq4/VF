@@ -3,7 +3,7 @@ import BoardPage from '../../POM/Board/Board.cy'
 import WorkspacePage from '../../POM/Board/WorkSpace.cy'
 import HealthCheckPage from 'cypress/POM/HealthCheck/HealthCheck.cy';
 
-describe('POM implementation', () => {
+describe('POM implementation for Health Check Flow', () => {
   before(() => {
     cy.visit('https://test414.staging.factor.work/login');
   });
@@ -13,7 +13,7 @@ describe('POM implementation', () => {
     cy.wait(3000);
     BoardPage.WorkSpaceTitle().should('have.text', 'My workspaces');
     cy.wait(2000);
-    WorkspacePage.workSpaceCreation('TestWS200');
+    WorkspacePage.workSpaceCreation('TestWS201');
     cy.wait(3000);
     WorkspacePage.workSpaceHealthCheckSelection();
     cy.wait(3000);
