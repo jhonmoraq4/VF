@@ -23,7 +23,7 @@ async function setupNodeEvents(on, config) {
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents,
-    specPattern: "cypress/**/**/*.*",
+    specPattern: "cypress/e2e/**/*.*",
     baseUrl: "https://test414.staging.factor.work/login",
     chromeWebSecurity: false,
     env: {

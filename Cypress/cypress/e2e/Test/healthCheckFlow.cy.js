@@ -13,7 +13,7 @@ describe('POM implementation', () => {
     cy.wait(3000);
     BoardPage.WorkSpaceTitle().should('have.text', 'My workspaces');
     cy.wait(2000);
-    WorkspacePage.workSpaceCreation('TestWS33');
+    WorkspacePage.workSpaceCreation('TestWS200');
     cy.wait(3000);
     WorkspacePage.workSpaceHealthCheckSelection();
     cy.wait(3000);

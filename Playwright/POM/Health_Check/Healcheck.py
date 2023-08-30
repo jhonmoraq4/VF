@@ -38,7 +38,7 @@ class HealthCheckPage:
 
     def thoughtsScreen(self):
         ThoughtstextArea=self.page.get_by_role("application", name="Rich Text Editor").get_by_role("paragraph").click()
-        textToFill= self.page.get_by_role("textbox", name="Editor editing area: main").fill("I will like to know more about technology")
+        textToFill= self.page.get_by_role("textbox", name="Editor editing area: main").fill("I would like to know more about technology")
     
     def habitsScreen(self):
         maintain_as_is_Elements = self.page.locator('.mat-radio-container')

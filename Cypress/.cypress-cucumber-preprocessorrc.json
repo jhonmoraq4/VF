@@ -12,13 +12,11 @@
       "enabled": false
     },
     "stepDefinitions": [
-      "[filepath]/**/*.{js,ts}",
-      "[filepath].{js,ts}",
-      "[filepath]\\***.{js,ts}",
-      "[filepath].{js,ts}",
-      "cypress/e2e/step_definitions/*.{js,ts}",
-      "cypress\\e2e\\step_definitions\\*.{js,ts}",
-      "Cypress/step_definitions/*.{js,ts}",
-      "Cypress\\step_definitions\\*.{js,ts}"
+    "[filepath]/**/*.{js,ts}",
+    "[filepath].{js,ts}",
+    "Cypress/step_definitions/*.{js,ts}",
+    "[filepath]\\***.{js,ts}",
+    "[filepath].{js,ts}",
+    "Cypress\\step_definitions\\*.{js,ts}"
     ]
   }

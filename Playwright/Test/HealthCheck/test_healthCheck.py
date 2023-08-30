@@ -19,7 +19,7 @@ with sync_playwright() as p:
     ws= WorkspacePage(page)
     ws.workSpaceComponent()
     time.sleep(1)
-    ws.workSpaceCreation('TestWS17')
+    ws.workSpaceCreation('TestWS37')
     time.sleep(3)
     ws.workSpaceOptions()
     hc=HealthCheckPage(page)
