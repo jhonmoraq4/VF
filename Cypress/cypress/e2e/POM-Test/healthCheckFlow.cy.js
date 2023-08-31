@@ -3,17 +3,17 @@ import BoardPage from '../../POM/Board/Board.cy'
 import WorkspacePage from '../../POM/Board/WorkSpace.cy'
 import HealthCheckPage from 'cypress/POM/HealthCheck/HealthCheck.cy';
 
-describe('POM implementation for Health Check Flow', () => {
+describe('POM implementation', () => {
   before(() => {
     cy.visit('https://test414.staging.factor.work/login');
   });
 
   it('HealthCheck test', () => {
-    LogginPage.loginInterface('charlie.green@client.bar', 'secret'); 
-    cy.wait(3000);
+    LogginPage.loginInterface('queenie.quinn@client.bar', 'secret');
+    cy.wait(2000);
     BoardPage.WorkSpaceTitle().should('have.text', 'My workspaces');
     cy.wait(2000);
-    WorkspacePage.workSpaceCreation('TestWS201');
+    WorkspacePage.workSpaceCreation('TestWS8');
     cy.wait(3000);
     WorkspacePage.workSpaceHealthCheckSelection();
     cy.wait(3000);
@@ -38,18 +38,11 @@ describe('POM implementation for Health Check Flow', () => {
     HealthCheckPage.volunteersScreen();
     cy.wait(2000);
     HealthCheckPage.submitButton();
-    cy.wait(2000);
+    cy.wait(2000)
     HealthCheckPage.diagnosticSubmitted();
-    cy.wait(2000);
-    HealthCheckPage.creatingReportButton();
-    cy.wait(2000);
-    HealthCheckPage.creatingReportFacilitator();
-    cy.wait(2000);
-    HealthCheckPage.creatingReportInclusion();
-    cy.wait(2000);
-    HealthCheckPage.creatingReportFinish();
-    cy.wait(2000);
-    //HealthCheckPage.healthCheckReportFinishedTitle().should('have.text', 'Health Check report');
+    cy.wait(2000)
+    HealthCheckPage.creatingReport();
+
   });
 
 });
