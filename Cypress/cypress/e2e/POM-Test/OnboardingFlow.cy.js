@@ -37,7 +37,7 @@ describe('POM implementation for User Registration', () => {
     cy.wait(2000)
     OnboardingPage.settingPassword();
     cy.wait(2000)
-    OnboardingPage.settingNames();
+    OnboardingPage.settingNames(fakeFirstName, fakeLastName);
     cy.wait(2000)
     OnboardingPage.workPreferences();
     cy.wait(2000)

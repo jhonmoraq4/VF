@@ -10,9 +10,9 @@ class OnboardingPage {
         cy.get('button.vf-button:nth-child(2)').click();
     }
     
-    settingNames(){
-        cy.get('#mat-input-3').type('Smith');
-        cy.get('#mat-input-4').type('1');
+    settingNames(name,lastName){
+        cy.get('#mat-input-3').type(name);
+        cy.get('#mat-input-4').type(lastName);
         // cy.get('#mat-slide-toggle-1').click();   If user want light theme
         cy.get('button.vf-button').click();
     }
