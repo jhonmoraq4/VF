@@ -14,12 +14,12 @@ with sync_playwright() as p:
     loggin = LogginPage(page)
     environment="https://test414.staging.factor.work/login"
     loggin.navigate(environment)
-    loggin.login('diana.mitchell@client.bar','secret')
+    loggin.login('queenie.quinn@client.bar','secret')
 
     ws= WorkspacePage(page)
     ws.workSpaceComponent()
     time.sleep(1)
-    ws.workSpaceCreation('JhonTest24')
+    ws.workSpaceCreation('TestWS300')
     time.sleep(3)
     ws.workSpaceOptions()
     hc=HealthCheckPage(page)
