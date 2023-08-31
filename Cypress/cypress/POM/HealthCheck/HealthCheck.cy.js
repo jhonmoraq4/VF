@@ -35,7 +35,7 @@ class HealthCheckPage {
     }
   
     thoughtsScreen() {
-      cy.get('div[role="textbox"]').type("Build a House")
+      cy.get('div[role="textbox"]').type("I would like to learn more about technologies")
 
       cy.get('[dd-action-name="DD: HC stepper: User post - Next"]').click()
       cy.wait(2000);
