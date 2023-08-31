@@ -9,11 +9,11 @@ describe('POM implementation', () => {
   });
 
   it('HealthCheck test', () => {
-    LogginPage.loginInterface('queenie.quinn@client.bar', 'secret');
+    LogginPage.loginInterface('edith.richards@client.bar', 'secret');
     cy.wait(2000);
     BoardPage.WorkSpaceTitle().should('have.text', 'My workspaces');
     cy.wait(2000);
-    WorkspacePage.workSpaceCreation('TestWS8');
+    WorkspacePage.workSpaceCreation('POMTestWS100');
     cy.wait(3000);
     WorkspacePage.workSpaceHealthCheckSelection();
     cy.wait(3000);
@@ -27,8 +27,6 @@ describe('POM implementation', () => {
     cy.wait(2000);
     HealthCheckPage.movitesScreen();
     cy.wait(2000);
-    HealthCheckPage.NextButtonThoughts();
-    cy.wait(2000);
     HealthCheckPage.thoughtsScreen();
     cy.wait(2000);
     HealthCheckPage.habitsScreen();
@@ -41,7 +39,15 @@ describe('POM implementation', () => {
     cy.wait(2000)
     HealthCheckPage.diagnosticSubmitted();
     cy.wait(2000)
-    HealthCheckPage.creatingReport();
+    HealthCheckPage.creatingReportButton();
+    cy.wait(2000);
+    HealthCheckPage.creatingReportFacilitator();
+    cy.wait(2000);
+    HealthCheckPage.creatingReportInclusion();
+    cy.wait(2000);
+    HealthCheckPage.creatingReportFinish();
+    cy.wait(2000);
+    //HealthCheckPage.healthCheckReportFinishedTitle().should('have.text', 'Health Check report');
 
   });
 

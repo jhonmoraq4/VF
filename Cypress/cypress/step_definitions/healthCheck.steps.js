@@ -15,14 +15,15 @@ When('A user enters the username {string} and password {string}',(username,passw
 
 When('A user creates workspace {string}',(WorkSpace)=>{ 
 
-    WorkspacePage.workSpaceCreation(WorkSpace)
+    WorkspacePage.workSpaceCreation(WorkSpace);
+    cy.wait(2000);
     
 })
 
 When('A user selects HealthCheck option',()=>{ 
-
-  WorkspacePage.workSpaceHealthCheckSelection();
   
+  WorkspacePage.workSpaceHealthCheckSelection();
+  cy.wait(2000);
 })
 
 When('A user Starts HealthCheck',()=>{ 
@@ -42,8 +43,7 @@ When('A user completes Motives Screen from Health Check',()=>{
 
   HealthCheckPage.movitesScreen();
   cy.wait(2000);
-  HealthCheckPage.NextButtonThoughts();
-  cy.wait(2000);
+
 })
 
 When('A user completes Thoughts Screen from Health Check',()=>{ 

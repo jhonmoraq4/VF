@@ -29,11 +29,16 @@ class HealthCheckPage {
         const randomValue = Math.floor(Math.random() * 99) + 2; // Genera un valor aleatorio entre 2 y 100
         cy.wrap($slider).invoke('val', randomValue).trigger('input');
       })
+      cy.wait(2000);
+      cy.get('[dd-action-name="DD: HC stepper: Motive score - Next"]').click()
+      cy.wait(2000);
     }
   
     thoughtsScreen() {
       cy.get('div[role="textbox"]').type("Build a House")
-      cy.get('#health-check-go-to-habits-step').click()
+
+      cy.get('[dd-action-name="DD: HC stepper: User post - Next"]').click()
+      cy.wait(2000);
     }
   
     habitsScreen() {
@@ -55,6 +60,10 @@ class HealthCheckPage {
         cy.get(prioritizeElements).eq(i).click();
         cy.wait(1000);
       }
+
+      cy.get('[dd-action-name="DD: HC stepper: Habit prioritize - Next"]').click()
+      cy.wait(2000);
+
     }
   
     ideasScreen() {
@@ -62,6 +71,10 @@ class HealthCheckPage {
         cy.wrap(textarea).type('This is a test');
         cy.wait(1000);
       });
+
+      cy.get('[dd-action-name="DD: HC stepper: Habit ideas - Next"]').click()
+      cy.wait(2000);
+
     }
   
     volunteersScreen() {
@@ -76,15 +89,36 @@ class HealthCheckPage {
       cy.get('button[mod*="accent"]').contains('Okay').click();
     }
 
-    creatingReport() {
+
+    creatingReportButton() {
       cy.get('#health-check-create-report').click();
-      cy.get('button[mat-flat-button][vfsteppernext][mod="accent"]').click();
-      cy.get('button[mat-flat-button][vfsteppernext][mod="accent"] span.mat-button-wrapper span:contains("That\'s correct")').click();
-      cy.get('#mat-checkbox-65').click();
-      cy.get('button[mat-flat-button][mod="accent"] span.mat-button-wrapper span:contains("Create report")').click();
-      cy.wait(2000)
-      cy.get('#health-check-creveal-step').click();
+
+     }
+
+    creatingReportFacilitator(){
+      cy.get('button[mat-flat-button]').contains('Yes, that\'s me').click();
+      //cy.get('button[mat-flat-button]').contains("No, that's not me").click();
     }
+
+    creatingReportInclusion(){
+      cy.get('button[mat-flat-button]').contains("That's correct").click();
+      //cy.contains('button[mat-flat-button]', 'Cancel').click();      
+    }
+    
+    creatingReportFinish(){
+      cy.get('.mat-checkbox-inner-container').click();
+      cy.wait(1)
+      //cy.get('button[mat-flat-button]').contains("Create report").click();
+      //cy.get('button[mat-flat-button]').contains('Create report').should('be.visible').click();
+    
+      //cy.contains('button[mat-flat-button]', 'Cancel').click();
+  
+    }
+
+    healthCheckReportFinishedTitle(){
+      return cy.get('h1.text-3xl[vftypography="headline-1"]').invoke('text')
+    }
+
   }
   
   module.exports = new HealthCheckPage();

@@ -6,8 +6,8 @@ Background:
     Given A user enters to the login Page
 Scenario: Success Login
  
-    When A user enters the username "charlie.green@client.bar" and password "secret"
-    And A user creates workspace "TestWS101"   
+    When A user enters the username "edith.richards@client.bar" and password "secret"
+    And A user creates workspace "TestWS121"   
     And A user selects HealthCheck option
     And A user Starts HealthCheck
     And A user completes Motives Screen from Health Check
