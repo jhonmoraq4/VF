@@ -13,7 +13,7 @@ describe('POM implementation for Health Check Flow', () => {
     cy.wait(3000);
     BoardPage.WorkSpaceTitle().should('have.text', 'My workspaces');
     cy.wait(2000);
-    WorkspacePage.workSpaceCreation('TestWS201');
+    WorkspacePage.workSpaceCreation('TestWS202');
     cy.wait(3000);
     WorkspacePage.workSpaceHealthCheckSelection();
     cy.wait(3000);

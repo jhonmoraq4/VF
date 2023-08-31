@@ -7,7 +7,7 @@ Background:
 Scenario: Success Login
  
     When A user enters the username "charlie.green@client.bar" and password "secret"
-    And A user creates workspace "TestWS101"   
+    And A user creates workspace "TestWS106"   
     And A user selects HealthCheck option
     And A user Starts HealthCheck
     And A user completes Motives Screen from Health Check

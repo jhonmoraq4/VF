@@ -16,13 +16,13 @@ When('A user enters the username {string} and password {string}',(username,passw
 When('A user creates workspace {string}',(WorkSpace)=>{ 
 
     WorkspacePage.workSpaceCreation(WorkSpace)
-    
+    cy.wait(2000)
 })
 
 When('A user selects HealthCheck option',()=>{ 
-
-  WorkspacePage.workSpaceHealthCheckSelection();
   
+  WorkspacePage.workSpaceHealthCheckSelection();
+  cy.wait(3000)
 })
 
 When('A user Starts HealthCheck',()=>{ 
