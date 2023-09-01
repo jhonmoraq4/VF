@@ -7,7 +7,7 @@ import OnboardingPage, { workDiagnostic } from '../../POM/Onboarding/OnboardingP
 
 describe('POM implementation for User Registration', () => {
   before(() => {
-    cy.visit('https://test414.staging.factor.work/register');
+    cy.visit('https://staging-vega3.tomo.guru/register');
   });
 
   const chance = new Chance();
@@ -39,9 +39,20 @@ describe('POM implementation for User Registration', () => {
     cy.wait(2000)
     OnboardingPage.settingNames(fakeFirstName, fakeLastName);
     cy.wait(2000)
+    OnboardingPage.avatarPage();
+    cy.wait(2000)
     OnboardingPage.workPreferences();
     cy.wait(2000)
-    OnboardingPage.workGoals();
+    OnboardingPage.organizationsPage();
+    cy.wait(2000)
+    OnboardingPage.workproblemPage();
+    cy.wait(2000)
+    OnboardingPage.stackandcardsPage();
+    cy.wait(2000)
+    OnboardingPage.layoutsPage();
+    cy.wait(2000)
+    OnboardingPage.skillsPage();
+    cy.wait(2000)
    });
 
 });
