@@ -52,7 +52,7 @@ class OnboardingPage {
         cy.get('textarea[placeholder="Example:  Our team is a sales team. We cannot change the product, but we can change how we work with customers."]').type('tecnología');
         cy.wait(1000);
         cy.contains('button', 'Next').click();
-        cy.wait(18000)
+        cy.wait(30000)
     }
 
     stackandcardsPage(){
@@ -69,7 +69,10 @@ class OnboardingPage {
         cy.wait(1000);
         cy.contains('button', 'Next').click();
         cy.wait(1000);
-        cy.contains('button', 'Next').click(); 
+        cy.get('body > vf-app > ui-view > vf-onboarding-container-v2 > vf-onboarding-stepper > vf-onboarding-container > vf-particles > div.vf-particles-wrapper > div.vf-particles-content > div > div > div > vf-stepper > div > div > vf-screen-stack-review > div.hidden.md\\:flex.mb-4 > div.w-4\\/6.px-6 > vf-step-actions > button.vf-button.mat-button-base.size-lg.mat-flat-button.vf-stepper-next.brk.vf-color-bg-gradient.vf-color-button.vf-color-button-bg-hover.vf-colormod-none.vf-theme.zone-modal.ng-star-inserted')
+            .click();
+
+ 
     }
 
     skillsPage(){
@@ -77,7 +80,9 @@ class OnboardingPage {
         cy.wait(5000)
         cy.contains('button', 'Next').click();
         cy.wait(1000)
-        cy.contains('button', 'Next').click();
+        cy.get('body > vf-app > ui-view > vf-onboarding-container-v2 > vf-onboarding-stepper > vf-onboarding-container > vf-particles > div.vf-particles-wrapper > div.vf-particles-content > div > div > div > vf-stepper > div > div > vf-screen-skill-review > div.hidden.md\\:flex.mb-4 > div.w-4\\/6.px-6 > vf-step-actions > button.vf-button.mat-button-base.size-lg.mat-flat-button.vf-stepper-next.brk.vf-color-bg-gradient.vf-color-button.vf-color-button-bg-hover.vf-colormod-none.vf-theme.zone-modal.ng-star-inserted')
+            .click();
+
     
     }
   }
